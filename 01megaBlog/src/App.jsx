@@ -1,19 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState,useEffect } from 'react'
+import {useDispatch} from "react-redux"
 import './App.css'
+import authservice from './appWrite/auth'
+import {login ,logout} from './Store/authSlice'
+import { Headder,Footer } from './components'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [loading, setLoading] = useState(true)
+  const dispatch =useDispatch()
+  useEffect(() => {
+    authservice.getCurrentUser()
+    .then((userData) => {
+      if(userData){
+        dispatch(login({userData}))
+      }else{
+        dispatch(logout())
+      }
+    })
+    .finally(() => setLoading(false))
+  } ,[])
 
-  console.log(import.meta.env.VITE_APPWRITE_URL);
-  return (
 
-    <>
-     <h1>megaBlog web-app with appWrite</h1>
-     
-    </>
-  )
+
+  return !loading ? (
+    <div className='min-h-sc flex flex-wrap content-between bg-gray-400'>
+      <div className='w-full block'>
+        <Headder/>
+        <main>
+            {/* <outlet></outlet> */}
+        </main>
+        <Footer/>
+      </div>
+    </div>
+  ) : null
 }
 
 export default App
