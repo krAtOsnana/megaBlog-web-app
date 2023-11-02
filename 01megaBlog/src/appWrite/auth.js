@@ -1,3 +1,19 @@
+/**
+    we make this file for user authientication servicer like login/logout/signUp
+    we use appWrite for backend as a service 
+    we follow the documentation for making all of the authientication functions
+    we make a class called authService 
+    and in constructotr of that class we create client and account 
+    so on when this class is call then and then only client and account is created 
+    by doing this we save our resources
+    we make an object of that class 
+    eg.const authService=new AuthService();
+    and then we export our object so that we can access all of the functions directly by usin
+    . operator 
+    eg- authService.createAccount
+
+ */
+
 import conf from '../conf/conf.js'
 import { Client, Account ,ID} from 'appwrite';
 

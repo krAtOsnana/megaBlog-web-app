@@ -7,8 +7,11 @@ import { Headder,Footer } from './components'
 
 
 function App() {
+  
   const [loading, setLoading] = useState(true)
+  
   const dispatch =useDispatch()
+  
   useEffect(() => {
     authservice.getCurrentUser()
     .then((userData) => {

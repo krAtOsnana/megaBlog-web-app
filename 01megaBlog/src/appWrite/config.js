@@ -1,3 +1,9 @@
+/**
+    just like auth services we create this file for other configurations of 
+    our user account 
+
+ */
+
 import conf from "../conf/conf";
 import { Client,ID, Databases ,Storage ,Query } from "appwrite";
 
