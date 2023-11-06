@@ -1,15 +1,15 @@
 import React from 'react'
 import {useDispatch } from 'react-redux'
 import authService from '../../appWrite/auth'
-import {logOut} from '../../Store/authSlice'
+import {logout} from '../../Store/authSlice'
 
 function LogOutBtn() {
 
     const dispatch =useDispatch()
 
     const logOutHandler = () => {
-        authService.logOut().then(() => {
-            dispatch(logOut)
+        authService.logout().then(() => {
+            dispatch(logout)
         })
     }
 
@@ -17,6 +17,7 @@ function LogOutBtn() {
     <button
     className='inline-block px-6 py-2 duration-200
     hover:bg-blue-600 rounded-full'
+    onClick={logOutHandler}
     >LogOut</button>
   )
 }
