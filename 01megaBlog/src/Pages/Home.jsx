@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import appwriteService from "../appWrite/config";
-import {Container, PostCard} from '../components'
+import {Container, PostCard} from '../components';
+//import AddPost from './AddPost';
 
 function Home() {
     const [posts, setPosts] = useState([])
@@ -21,6 +22,7 @@ function Home() {
                         <div className="p-2 w-full">
                             <h1 className="text-2xl font-bold hover:text-gray-500">
                                 Login to read posts
+                                {/* <AddPost/> */}
                             </h1>
                         </div>
                     </div>

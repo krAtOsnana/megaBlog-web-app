@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 function Headder() {
 
-  const authStatus = useSelector((state) => state.status )
+  const authStatus = useSelector((state) => state.auth.status )
   const navigate = useNavigate()
 
   const navItems = [
@@ -42,7 +42,7 @@ function Headder() {
       <Container>
         <nav className='flex'>
           <div className='mr-4'>
-            <Link to="">
+            <Link to="/">
             <Logo width='70px'/>
             </Link>
           </div>
