@@ -24,12 +24,12 @@ export default function PostForm({post}) {
           const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
           if (file) {
-              appwriteService.deleteFile(post.featuredImage);
+              appwriteService.deleteFile(post.feacturedImage);
           }
 
           const dbPost = await appwriteService.updatePost(post.$id, {
               ...data,
-              featuredImage: file ? file.$id : undefined,
+              feacturedImage: file ? file.$id : undefined,
           });
 
           if (dbPost) {
@@ -40,8 +40,8 @@ export default function PostForm({post}) {
 
           if (file) {
               const fileId = file.$id;
-              data.featuredImage = fileId;
-              const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
+              data.feacturedImage = fileId;
+              const dbPost = await appwriteService.createPost({ ...data, userID: userData.$id });
 
               if (dbPost) {
                   navigate(`/post/${dbPost.$id}`);
@@ -104,7 +104,7 @@ React.useEffect(() => {
         {post && (
             <div className="w-full mb-4">
                 <img
-                    src={appwriteService.getFilePreview(post.featuredImage)}
+                    src={appwriteService.getFilePreview(post.feacturedImage)}
                     alt={post.title}
                     className="rounded-lg"
                 />
