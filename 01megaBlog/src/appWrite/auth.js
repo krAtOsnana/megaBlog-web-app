@@ -1,5 +1,5 @@
 /**
-    we make this file for user authientication servicer like login/logout/signUp
+    we make this file for user authientication services like login/logout/signUp
     we use appWrite for backend as a service 
     we follow the documentation for making all of the authientication functions
     we make a class called authService 
